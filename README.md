@@ -1,7 +1,7 @@
-=======================================================
+========================================================================
 # Getting and Cleaning Data Course Project Coursera
 ## READ ME FIRST!
-=======================================================
+========================================================================
 
 This repo contains an exercise in getting and cleaning data, for the the Getting and Cleaning Data Course in Coursera's Data science Specialization. The original data are measurments taken with Samsungs' Galaxy X phone's gyroscope and accelerometer. For the sake of clarity, the data includes measurements on 30 subjects divided in 2 groups (train and test) performing 6 activities. For further information, refer to the "Original Codebook" folder, starting with the "ReadMe.txt" file inside and following with the "features.txt".
 
@@ -10,5 +10,7 @@ The course project demands that this original data be transformed into a tidy da
 This repo contains the following files:
 
 - This "ReadMe.md"
-- The "Original Codebook" with the "raw" datasets and information on how the data was obtained.
-- The "UpdatedCodebook.txt" file, describing the transformations done to the data and how the R script works.
+- "Original Codebook" with the "raw" datasets and information on how the data was obtained.
+- "UpdatedCodebook.txt" file, describing the transformations done to the data and how the R script works.
+- "SGX_MovementDataTidy.txt", the processed "tidy" dataset.
+- "run_analysis.R", the R script that performs the data transformations.

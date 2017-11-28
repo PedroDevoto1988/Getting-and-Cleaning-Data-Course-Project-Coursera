@@ -10,7 +10,7 @@ The course project demands that this original data be transformed into a tidy da
 This repo contains the following files:
 
 - This "ReadMe.md"
-- "Original Codebook" with the "raw" datasets and information on how the data was obtained.
+- "Original Codebook" with information on how the origianl data was obtained.
 - "UpdatedCodebook.txt" file, describing the transformations done to the data and how the R script works.
 - "SGX_MovementDataTidy.txt", the processed "tidy" dataset.
 - "run_analysis.R", the R script that performs the data transformations.

@@ -1,0 +1,133 @@
+================================================================================================
+# CodeBook for Transformed Data
+## This is a CodeBook that explains what transformations have been done to the data to try and comply with the course projects instructions.
+## Read the README first!
+================================================================================================
+
+================
+PART I
+Opening the File
+================
+
+Input the following command in R. Make sure you are using the correct file paths an directories, eitherwise it will not work.
+
+file.edit("run_analysis.R")
+setwd() ## Use these commands to navigate through your directories.
+getwd()
+
+These actions open up the R script with the commands to read the original data into R and perform transformations so as to get to two tables:
+ * "tidy" -> The tidy dataset (columns are variables, rows are observations, insides are values). DataFrame of 10299 Obs. and 89 variables.
+ * "tidyfinal" -> A recasted "tidy", with the average of the previous variables as values, plotted against rows of each subject by each activity.
+
+=====================
+PART II
+What the script Does
+=====================
+
+subject: 1 through 30, identifies the subject with a number.
+activity: string variable with descriptive name of one of six activities performed by subjects.
+mean: mathematical average.
+std: standard deviation.
+t: denotes time
+f/freq: denotes frequency
+X,Y,Z: signifies which one of the three directions in a 3D plane the movement has been measured.
+Acc: movement recorded by the accelerometer.
+Gyro: movement recorded by the gyroscope.
+BodyAcc: rate of change of velocity of a given body.
+GravityAcc: rate of change of velocity caused by gravity.
+Jerk: rate of change of acceleration.
+Mag: magnitude calculated using the euclidean norm.
+angle(): sample measurments of a given variable.
+
+All values have been normalised to remove units of measurement and make them comparable. Thus, values range from (-1,+1) implying the magnitude of the movement.
+
+The variables (features in the original data) are the following:
+
+"subject"
+"activity"
+"tBodyAcc-mean()-X"
+"tBodyAcc-mean()-Y"
+"tBodyAcc-mean()-Z"
+"tGravityAcc-mean()-X"
+"tGravityAcc-mean()-Y"
+"tGravityAcc-mean()-Z"
+"tBodyAccJerk-mean()-X"
+"tBodyAccJerk-mean()-Y"
+"tBodyAccJerk-mean()-Z"
+"tBodyGyro-mean()-X"
+"tBodyGyro-mean()-Y"
+"tBodyGyro-mean()-Z"
+"tBodyGyroJerk-mean()-X"
+"tBodyGyroJerk-mean()-Y"
+"tBodyGyroJerk-mean()-Z"
+"tBodyAccMag-mean()"
+"tGravityAccMag-mean()"
+"tBodyAccJerkMag-mean()"
+"tBodyGyroMag-mean()"
+"tBodyGyroJerkMag-mean()"
+"fBodyAcc-mean()-X"
+"fBodyAcc-mean()-Y"
+"fBodyAcc-mean()-Z"
+"fBodyAcc-meanFreq()-X"
+"fBodyAcc-meanFreq()-Y"
+"fBodyAcc-meanFreq()-Z"
+"fBodyAccJerk-mean()-X"
+"fBodyAccJerk-mean()-Y"
+"fBodyAccJerk-mean()-Z"
+"fBodyAccJerk-meanFreq()-X"
+"fBodyAccJerk-meanFreq()-Y"
+"fBodyAccJerk-meanFreq()-Z"
+"fBodyGyro-mean()-X"
+"fBodyGyro-mean()-Y"
+"fBodyGyro-mean()-Z"
+"fBodyGyro-meanFreq()-X"
+"fBodyGyro-meanFreq()-Y"
+"fBodyGyro-meanFreq()-Z"
+"fBodyAccMag-mean()"
+"fBodyAccMag-meanFreq()"
+"fBodyAccJerkMag-mean()"
+"fBodyAccJerkMag-meanFreq()"
+"fBodyGyroMag-mean()"
+"fBodyGyroMag-meanFreq()"
+"fBodyGyroJerkMag-mean()"
+"fBodyGyroJerkMag-meanFreq()"
+"angle(tBodyAccMean,gravity)"
+"angle(tBodyAccJerkMean),gravityMean)"
+"angle(tBodyGyroMean,gravityMean)"
+"angle(tBodyGyroJerkMean,gravityMean)"
+"angle(X,gravityMean)"
+"angle(Y,gravityMean)"
+"angle(Z,gravityMean)"
+"tBodyAcc-std()-X"
+"tBodyAcc-std()-Y"
+"tBodyAcc-std()-Z"
+"tGravityAcc-std()-X"
+"tGravityAcc-std()-Y"
+"tGravityAcc-std()-Z"
+"tBodyAccJerk-std()-X"
+"tBodyAccJerk-std()-Y"
+"tBodyAccJerk-std()-Z"
+"tBodyGyro-std()-X"
+"tBodyGyro-std()-Y"
+"tBodyGyro-std()-Z"
+"tBodyGyroJerk-std()-X"
+"tBodyGyroJerk-std()-Y"
+"tBodyGyroJerk-std()-Z"
+"tBodyAccMag-std()"
+"tGravityAccMag-std()"
+"tBodyAccJerkMag-std()"
+"tBodyGyroMag-std()"
+"tBodyGyroJerkMag-std()"
+"fBodyAcc-std()-X"
+"fBodyAcc-std()-Y"
+"fBodyAcc-std()-Z"
+"fBodyAccJerk-std()-X"
+"fBodyAccJerk-std()-Y"
+"fBodyAccJerk-std()-Z"
+"fBodyGyro-std()-X"
+"fBodyGyro-std()-Y"
+"fBodyGyro-std()-Z"
+"fBodyAccMag-std()"
+"fBodyAccJerkMag-std()"
+"fBodyGyroMag-std()"
+"fBodyGyroJerkMag-std()"

@@ -4,6 +4,8 @@
 ## Read the README first!
 ================================================================================================
 
+NOTE: The script contains much more detailed info for each step of code.
+
 ================
 PART I
 Opening the File
@@ -16,13 +18,36 @@ setwd() ## Use these commands to navigate through your directories.
 getwd()
 
 These actions open up the R script with the commands to read the original data into R and perform transformations so as to get to two tables:
- * "tidy" -> The tidy dataset (columns are variables, rows are observations, insides are values). DataFrame of 10299 Obs. and 89 variables.
- * "tidyfinal" -> A recasted "tidy", with the average of the previous variables as values, plotted against rows of each subject by each activity.
+ - "tidy" -> The tidy dataset (columns are variables, rows are observations, insides are values). DataFrame of 10299 Obs. and 89 variables.
+ - "tidyfinal" -> A recasted "tidy", with the average of the previous variables as values, plotted against rows of each subject by each activity.
 
 =====================
 PART II
 What the script Does
 =====================
+
+The script begins with a series of commands to read files into R. It downloads the required file and unzips it with default filepaths and names. Adapt the download.file() and unzip() functions as required. If not, start the script at line 10, with setwd("D:/UCI HAR Dataset"), the name of the zipped file.
+
+The relevant info comes in two folders, "train" and "test" (observations of the 30 subjects are divided 70% and 30% between the two groups). Each group of files comes with an "X_(...).txt" file with the values for each observation, an "(...)_subject.txt" for the code for the subject for each observation, and a "Y_(...).txt" file with the activity code for each observation. The script loads all these files and properly labels them as objects in R to be used by later code. It does it for both groups (train and test).
+
+After this, the code properly names the variables (columns) with the "features.txt" file, and snaps the columns together. Then it binds the "train" and "test" subsets, to create one unified dataset. At this point, it properly names the activities with descriptive names (like "WALKING" or "SITTING"). Note: this is done with the merge() function: while I am sure that it could be done in a simpler way with gsub() or replace(), I was not able to reliably do so.
+
+Moving on, the code drops the variables which DO NOT represent calculations of mean or standard deviated measurements. It also removes all no longer needed objects in the GlobalEnvironment so as to free up cache memory to ease R's job.
+
+Finally, it melts the dataset to a "tall" type of dataset, each rows representeing a unique "subject", "activity", "group", "variable" and "value" combination. Then it casts it into a new dataset with the "subject + activity" as "id", and a "variable" and the mean of that variable as values. It then writes it into a text file called "SGX_MovementDataTidy.txt" in your working directory.
+
+On a final note, the two datasets that remain loaded to the GlobalEnvironment ar the ones demanded by the 4th and 5th point of the projects' instructions: a properly labeled "tidy" one, and a new dataset which plots the mentioned variables with the mean of the measurements as values.
+
+===================
+PART III
+Meet the Variables
+===================
+
+It is unclear which is the underlying question the project wants to answer, and as such, which type of variables (features) the dataset should keep. Likewise, I believed it folly to rename the variables (outside of cleaning typos) to differing names as intended by the data scientists doing the measurements.
+
+In keeping with the original abreviations, what follows is a deeper description of each of these abreviations, and a list of the kept variables. All values have been normalised to remove units of measurement and make them comparable. Thus, values range from (-1,+1) implying the magnitude of the movement.
+
+Without further ado, here are the abreviations:
 
 subject: 1 through 30, identifies the subject with a number.
 activity: string variable with descriptive name of one of six activities performed by subjects.
@@ -39,9 +64,7 @@ Jerk: rate of change of acceleration.
 Mag: magnitude calculated using the euclidean norm.
 angle(): sample measurments of a given variable.
 
-All values have been normalised to remove units of measurement and make them comparable. Thus, values range from (-1,+1) implying the magnitude of the movement.
-
-The variables (features in the original data) are the following:
+And here are the variables:
 
 "subject"
 "activity"

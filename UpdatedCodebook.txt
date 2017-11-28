@@ -38,6 +38,8 @@ Finally, it melts the dataset to a "tall" type of dataset, each rows representei
 
 On a final note, the two datasets that remain loaded to the GlobalEnvironment ar the ones demanded by the 4th and 5th point of the projects' instructions: a properly labeled "tidy" one, and a new dataset which plots the mentioned variables with the mean of the measurements as values.
 
+(Do not worry about the "inertial signal folders", they do not contain info pertaining to the project.
+
 ===================
 PART III
 Meet the Variables

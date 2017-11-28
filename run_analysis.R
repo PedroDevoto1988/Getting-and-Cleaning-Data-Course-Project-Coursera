@@ -75,10 +75,7 @@ melttidy <- melt(tidy, id=c("subject","activity","group"),4:89)
 finaltidy <- dcast(melttidy,subject + activity ~variable,mean)
 rm(list=setdiff(ls(), c("finaltidy", "tidy")))
 
-## Some corrections to variable names
+## Some corrections to variable names and writing dataset onto file
 
-a <- gsub("BodyBody","Body", a)
-colnames(finaltidy) <- a
-rm(a)
-
+colnames(finaltidy) <- gsub("BodyBody","Body", finaltidy)
 write.table(finaltidy, "D:/SGX_MovementDataTidy.txt", row.names = F )
